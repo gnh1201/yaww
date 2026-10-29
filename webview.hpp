@@ -15,8 +15,12 @@
 #define WEBVIEW_MAIN int __stdcall WinMain(HINSTANCE, HINSTANCE, LPSTR, int)
 #define GetProcNameAddress(hmod, proc) \
     reinterpret_cast<decltype(proc)*>(GetProcAddress(hmod, #proc))
+#ifndef UNICODE
 #define UNICODE
+#endif
+#ifndef _UNICODE
 #define _UNICODE
+#endif
 #define Str(s) L##s
 #else
 #define WEBVIEW_MAIN int main(int, char**)
