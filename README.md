@@ -47,9 +47,15 @@ The MCP stdio API uses [nlohmann/json](https://github.com/nlohmann/json?utm_sour
 
 [ChakraCore](https://github.com/chakra-core/ChakraCore?utm_source=yaww) can be enabled as an optional host-side script runtime shared by the
 Windows WebView2, EdgeHTML, and MSHTML backends. Configure with
-`-DWEBVIEW_ENABLE_CHAKRACORE=ON` to build the current ChakraCore source and
-expose `wv::ChakraCore` through `webview.hpp`. Choose whether to start it, the
-script path, and whether to show its debug console with
+`-DWEBVIEW_ENABLE_CHAKRACORE=ON` to use prebuilt ChakraCore binaries, downloaded
+automatically from the matching `x86_release.zip` or `x64_release.zip`, and expose
+`wv::ChakraCore` through `webview.hpp`. To use binaries already on disk, set
+`WEBVIEW_CHAKRACORE_PREBUILT_DIR` to the directory containing
+`ChakraCore.lib` and `ChakraCore.dll`. Set
+`-DWEBVIEW_CHAKRACORE_USE_PREBUILT=OFF` to build ChakraCore from source instead.
+Prebuilt ZIP archives are SHA-256 verified during download.
+Choose whether to start it, the script path, and whether to show its debug
+console with
 `wv::ChakraCore::Options`; an empty script path uses `webview.js` beside the
 executable, while a specified path takes precedence. `showDebugConsole()` or
 the window title bar's system menu can open the console later.
