@@ -8,13 +8,18 @@ its external link.
 
 ChakraCore is available as an optional shared host-side API for `wv::WebView` on
 WebView2, EdgeHTML, and MSHTML. Enable it with
-`WEBVIEW_ENABLE_CHAKRACORE=ON`; this downloads ChakraCore's current `master`
-branch and builds its Visual Studio solution, so network access and MSVC are
-required. `wv::ChakraCore::Options` selects whether to start the runtime, the
-script file to load, and whether to open the debug console. With no script path,
-the runtime looks for `webview.js` beside the executable. An explicit script
-path overrides that default. The same C++ API works with each Windows WebView
-backend:
+`WEBVIEW_ENABLE_CHAKRACORE=ON`; the matching `x86_release.zip` or
+`x64_release.zip` is downloaded and extracted automatically by default, so
+configuring does not build ChakraCore from source. The archives are checked
+against their expected SHA-256 hashes.
+Set `WEBVIEW_CHAKRACORE_PREBUILT_DIR` to use local `ChakraCore.lib` and
+`ChakraCore.dll` files, or set `WEBVIEW_CHAKRACORE_USE_PREBUILT=OFF` to build
+the current `master` source with MSBuild. Network access is needed for automatic
+downloads (and for the ChakraCore headers). `wv::ChakraCore::Options` selects
+whether to start the runtime, the script file to load, and whether to open the
+debug console. With no script path, the runtime looks for `webview.js` beside
+the executable. An explicit script path overrides that default. The same C++
+API works with each Windows WebView backend:
 
 ```powershell
 cmake -S . -B out/build/chakra-control -DWEBVIEW_ENABLE_CHAKRACORE=ON -DWEBVIEW_BUILD_CHAKRA_EXAMPLE=ON

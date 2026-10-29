@@ -26,9 +26,15 @@ if(WIN32)
 endif()
 
 # ChakraCore is an optional host-side scripting runtime shared by all
-# WebView backends. Its upstream Windows build is provided as a Visual Studio
-# solution and is built with MSBuild when enabled.
+# WebView backends. Prebuilt Windows binaries are used by default.
 option(WEBVIEW_ENABLE_CHAKRACORE "Enable the ChakraCore host scripting API" OFF)
+option(WEBVIEW_CHAKRACORE_USE_PREBUILT
+	"Use prebuilt ChakraCore binaries instead of building from source" ON)
+set(WEBVIEW_CHAKRACORE_PREBUILT_DIR "" CACHE PATH
+	"Directory containing prebuilt ChakraCore.lib and ChakraCore.dll")
+set(WEBVIEW_CHAKRACORE_PREBUILT_URL
+	"https://catswords.blob.core.windows.net/welsonjs/chakracore-build"
+	CACHE STRING "Base URL for downloading prebuilt ChakraCore ZIP archives")
 option(WEBVIEW_BUILD_CHAKRA_EXAMPLE "Build the ChakraCore control-script example" OFF)
 option(WEBVIEW_ENABLE_SCINTILLA_CONSOLE
 	"Use Scintilla and Lexilla for ChakraCore console JavaScript highlighting" ON)
