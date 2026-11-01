@@ -1,12 +1,12 @@
 include(FetchContent)
 
 FetchContent_Declare(scintilla
-	URL https://www.scintilla.org/scintilla567.tgz
-	URL_HASH SHA256=19E4476706750056F86CA70974810E4A5B08E73477E13F7D9FAE78243606F6A7
+	URL https://catswords.blob.core.windows.net/welsonjs/packages/archive/scintilla568.tgz
+	URL_HASH SHA256=CA7FDA23125289BBF473AFD6FCD4959F65E828BFF1A8AE60C603B34DFCB3A777
 )
 FetchContent_Declare(lexilla
-	URL https://www.scintilla.org/lexilla554.tgz
-	URL_HASH SHA256=FCD9EF74236A12359D1039827C93DBF827AA476C46F9FD6EEF60BB96DB1AF2F6
+	URL https://catswords.blob.core.windows.net/welsonjs/packages/archive/lexilla555.tgz
+	URL_HASH SHA256=2A06AEEB5DA5876F00BCCD2E89E838546EBAEA40AF4F73364FB2557083AFEE43
 )
 
 FetchContent_GetProperties(scintilla)
@@ -57,13 +57,13 @@ add_custom_target(webview_scintilla_build
 	COMMAND "${WEBVIEW_NMAKE_EXECUTABLE}" /f scintilla.mak QUIET=1
 	WORKING_DIRECTORY "${WEBVIEW_SCINTILLA_SOURCE_DIR}/win32"
 	BYPRODUCTS "${WEBVIEW_SCINTILLA_DLL}"
-	COMMENT "Building Scintilla 5.6.7"
+	COMMENT "Building Scintilla 5.6.8"
 	VERBATIM)
 add_custom_target(webview_lexilla_build
 	COMMAND "${WEBVIEW_NMAKE_EXECUTABLE}" /f lexilla.mak QUIET=1
 	WORKING_DIRECTORY "${WEBVIEW_LEXILLA_SOURCE_DIR}/src"
 	BYPRODUCTS "${WEBVIEW_LEXILLA_DLL}"
-	COMMENT "Building Lexilla 5.5.4"
+	COMMENT "Building Lexilla 5.5.5"
 	VERBATIM)
 
 target_include_directories(webview SYSTEM INTERFACE

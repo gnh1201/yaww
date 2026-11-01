@@ -3,9 +3,8 @@ enable_language(C)
 
 # Pin the Gumbo parser revision so every backend uses the same HTML parser.
 FetchContent_Declare(gumbo_parser
-  GIT_REPOSITORY https://codeberg.org/gumbo-parser/gumbo-parser.git
-  GIT_TAG 6b414b60f83dc5d89970bbbd01b8f77cf7036eda
-  GIT_SHALLOW FALSE
+  URL https://catswords.blob.core.windows.net/welsonjs/packages/archive/gumbo-parser-6b414b60f83dc5d89970bbbd01b8f77cf7036eda.tar.gz
+  URL_HASH SHA256=7BB495EEDFF6EBDAB114816A7F38748BDD7BA09035DDDDB7D443A8A3E0EE3208
 )
 FetchContent_GetProperties(gumbo_parser)
 if(NOT gumbo_parser_POPULATED)
