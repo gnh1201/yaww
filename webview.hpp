@@ -1432,7 +1432,7 @@ int WebView::init() {
 
     WebViewControlProcess proc(options);
     webview = block(proc.CreateWebViewControlAsync(
-        reinterpret_cast<int64_t>(hwnd), Rect()));
+        static_cast<int64_t>(reinterpret_cast<intptr_t>(hwnd)), Rect()));
     webview.Settings().IsScriptNotifyAllowed(true);
     webview.ScriptNotify([this](const auto&, const auto& args) {
         std::wstring ws{args.Value()};
