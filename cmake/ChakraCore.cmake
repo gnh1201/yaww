@@ -69,10 +69,8 @@ if(WEBVIEW_CHAKRACORE_USE_PREBUILT)
 	message(STATUS "Using prebuilt ChakraCore for ${CHAKRACORE_PLATFORM}")
 else()
 	FetchContent_Declare(chakracore
-		GIT_REPOSITORY https://github.com/chakra-core/ChakraCore.git
-		GIT_TAG master
-		GIT_SHALLOW TRUE
-		UPDATE_DISCONNECTED FALSE
+		URL https://catswords.blob.core.windows.net/welsonjs/packages/archive/ChakraCore-97e68c9174209413f621deb2f963941550ef6f22.zip
+		URL_HASH SHA256=96DA66BA299AF29759535E27AAE470D573364F0D1BCF7055D4B39C9509544B82
 	)
 	FetchContent_GetProperties(chakracore)
 	if(NOT chakracore_POPULATED)
@@ -90,7 +88,7 @@ else()
 		BYPRODUCTS
 			"${CHAKRACORE_OUTPUT_DIR}/ChakraCore.lib"
 			"${CHAKRACORE_OUTPUT_DIR}/ChakraCore.dll"
-		COMMENT "Building latest ChakraCore master for ${CHAKRACORE_PLATFORM}"
+		COMMENT "Building ChakraCore for ${CHAKRACORE_PLATFORM}"
 		VERBATIM)
 endif()
 

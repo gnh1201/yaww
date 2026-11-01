@@ -17,7 +17,8 @@ if(NOT TARGET nlohmann_json::nlohmann_json)
   include(FetchContent)
   set(JSON_BuildTests OFF CACHE INTERNAL "")
   FetchContent_Declare(nlohmann_json
-    URL https://github.com/nlohmann/json/releases/download/v3.12.0/json.tar.xz)
+    URL https://catswords.blob.core.windows.net/welsonjs/packages/archive/json-9c349b1d7c393c6bc6dbbe4191e332e3bb4100b8.zip
+    URL_HASH SHA256=DA423FB941837D71C7976CF80214B7341D64EFA6C4EF1D2A36B1E456D0242422)
   FetchContent_MakeAvailable(nlohmann_json)
 endif()
 
