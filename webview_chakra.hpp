@@ -422,7 +422,9 @@ private:
 
 }  // namespace detail
 
-class ChakraCore {
+// addMethod() stores the method in the low 3 bits of this, which 32-bit
+// targets do not keep clear without explicit alignment.
+class alignas(8) ChakraCore {
 public:
     struct Options {
         bool enabled = true;
