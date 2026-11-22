@@ -8,10 +8,11 @@ its external link.
 
 ChakraCore is available as an optional shared host-side API for `wv::WebView` on
 WebView2, EdgeHTML, and MSHTML. Enable it with
-`WEBVIEW_ENABLE_CHAKRACORE=ON`; the matching `x86_release.zip` or
-`x64_release.zip` is downloaded and extracted automatically by default, so
-configuring does not build ChakraCore from source. The archives are checked
-against their expected SHA-256 hashes.
+`WEBVIEW_ENABLE_CHAKRACORE=ON`; the matching x86 or x64 `ChakraCore.dll` (signed
+through SignPath) and `ChakraCore.lib` of the WelsonJS build of ChakraCore
+1.13.0.97e68c9.1 are downloaded automatically by default, so configuring does not
+build ChakraCore from source. The files are checked against their expected
+SHA-256 hashes.
 Set `WEBVIEW_CHAKRACORE_PREBUILT_DIR` to use local `ChakraCore.lib` and
 `ChakraCore.dll` files, or set `WEBVIEW_CHAKRACORE_USE_PREBUILT=OFF` to build
 the current `master` source with MSBuild. Network access is needed for automatic
