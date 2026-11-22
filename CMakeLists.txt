@@ -34,7 +34,7 @@ set(WEBVIEW_CHAKRACORE_PREBUILT_DIR "" CACHE PATH
 	"Directory containing prebuilt ChakraCore.lib and ChakraCore.dll")
 set(WEBVIEW_CHAKRACORE_PREBUILT_URL
 	"https://catswords.blob.core.windows.net/welsonjs/packages/native/ChakraCore"
-	CACHE STRING "Base URL of the prebuilt ChakraCore releases (<version>-signed/<arch>/ChakraCore.dll and <version>-<arch>/ChakraCore.lib)")
+	CACHE STRING "Base URL of the prebuilt ChakraCore releases (<version>/<arch>/ChakraCore.dll and <version>-<arch>-nosigned/ChakraCore.lib)")
 option(WEBVIEW_BUILD_CHAKRA_EXAMPLE "Build the ChakraCore control-script example" OFF)
 option(WEBVIEW_ENABLE_SCINTILLA_CONSOLE
 	"Use Scintilla and Lexilla for ChakraCore console JavaScript highlighting" ON)
