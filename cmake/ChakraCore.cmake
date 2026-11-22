@@ -37,8 +37,8 @@ if(WEBVIEW_CHAKRACORE_USE_PREBUILT)
 	else()
 		# The WelsonJS build of ChakraCore 1.13.0.97e68c9.1 (the commit of the headers):
 		# ChakraCore.dll from the release signed through SignPath
-		# (<version>-signed/<arch>/), ChakraCore.lib from the build of the same version
-		# (<version>-<arch>/). The hashes are those recorded in WelsonJS
+		# (<version>/<arch>/), ChakraCore.lib from the unsigned build of the same version
+		# (<version>-<arch>-nosigned/). The hashes are those recorded in WelsonJS
 		# native/chakracore/prebuilt/signed.sha256 and <arch>.sha256.
 		set(CHAKRACORE_PREBUILT_VERSION "1.13.0.97e68c9.1")
 		if(CHAKRACORE_PLATFORM STREQUAL "x64")
@@ -57,12 +57,12 @@ if(WEBVIEW_CHAKRACORE_USE_PREBUILT)
 		set(CHAKRACORE_OUTPUT_DIR
 			"${CMAKE_BINARY_DIR}/_deps/chakracore_prebuilt/${CHAKRACORE_PREBUILT_VERSION}-${CHAKRACORE_PLATFORM}")
 		file(DOWNLOAD
-			"${CHAKRACORE_PREBUILT_URL}/${CHAKRACORE_PREBUILT_VERSION}-signed/${CHAKRACORE_PLATFORM}/ChakraCore.dll"
+			"${CHAKRACORE_PREBUILT_URL}/${CHAKRACORE_PREBUILT_VERSION}/${CHAKRACORE_PLATFORM}/ChakraCore.dll"
 			"${CHAKRACORE_OUTPUT_DIR}/ChakraCore.dll"
 			EXPECTED_HASH "SHA256=${CHAKRACORE_DLL_SHA256}"
 			TLS_VERIFY ON)
 		file(DOWNLOAD
-			"${CHAKRACORE_PREBUILT_URL}/${CHAKRACORE_PREBUILT_VERSION}-${CHAKRACORE_PLATFORM}/ChakraCore.lib"
+			"${CHAKRACORE_PREBUILT_URL}/${CHAKRACORE_PREBUILT_VERSION}-${CHAKRACORE_PLATFORM}-nosigned/ChakraCore.lib"
 			"${CHAKRACORE_OUTPUT_DIR}/ChakraCore.lib"
 			EXPECTED_HASH "SHA256=${CHAKRACORE_LIB_SHA256}"
 			TLS_VERIFY ON)
